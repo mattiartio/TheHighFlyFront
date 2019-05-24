@@ -9,4 +9,15 @@
 
         <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
     </div>
+
+    <div>
+        <label for="password">Password</label>
+
+        <input  name="password" id="password"
+                [(ngModel)]="user.password"
+                required
+                #password="ngModel"/>
+
+        <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+    </div>
 </form>
