@@ -1,5 +1,5 @@
 <form class="user-form" #f="ngForm">
-    <div>
+    <div class="form-group">
         <label for="username">Username</label>
 
         <input  name="username" id="username"
@@ -10,7 +10,7 @@
         <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
     </div>
 
-    <div>
+    <div class="form-group">
         <label for="password">Password</label>
 
         <input  name="password" id="password"
@@ -19,5 +19,11 @@
                 #password="ngModel"/>
 
         <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+    </div>
+
+    <div class="form-group form-footer">
+      <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+              (click)="login()"
+              [disabled]="!f.valid">Save</button>
     </div>
 </form>
