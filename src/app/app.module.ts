@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
+import {UsersListComponent} from './users/users-list/users-list.component';
 
 @NgModule({
   declarations: [
