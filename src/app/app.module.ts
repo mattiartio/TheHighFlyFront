@@ -8,14 +8,13 @@ import {AuthService} from './_services/auth-service.service';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModuleModule} from './routing-module/routing-module.module';
-import { BookingComponentComponent } from './booking-component/booking-component.component';
 import { BookingComponent } from './booking/booking.component';
+import {BookingService} from './_services/booking.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BookingComponentComponent,
     BookingComponent
   ],
   imports: [
@@ -24,7 +23,7 @@ import { BookingComponent } from './booking/booking.component';
     AppRoutingModuleModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

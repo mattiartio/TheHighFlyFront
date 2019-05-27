@@ -1,3 +1,61 @@
-<p>
-  booking works!
-</p>
+<div class="row">
+  <div class="row" >
+    <div class="col-md-6">
+      <div class="input-group input-group-sm input-group-transparent input-group-rounded">
+                    <span class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </span>
+        <!-- <input class="form-control form-control-sm" id="table-search-input" [(ngModel)]="searchText"
+               type="text" placeholder="Cerca per nominativo"> -->
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped table-sm table-light">
+
+    <caption>{{bookingTableHeader}}</caption>
+
+    <thead>
+    <tr>
+      <th>Username</th>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Veicolo</th>
+      <th>Partenza</th>
+      <th>Ritorno</th>
+      <th>Prezzo</th>
+      <th>N°persone</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let booking of bookingData">
+      <td>{{booking.username}}</td>
+      <td>{{booking.name}}</td>
+      <td>{{booking.surname}}</td>
+      <td>{{booking.transport}}</td>
+      <td>{{booking.dataTo | date}}</td>
+      <td>{{booking.dataTo | date}}</td>
+      <td>{{booking.price}}</td>
+      <td>{{booking.seats}}</td>
+     <!-- <td class="buttons">
+
+        <div class="row">
+          <div class="col-sm-4">
+            <button class="btn btn-primary" (click)="selectUser(user.id)">
+              <fa name="pencil" fixed="true"></fa>
+            </button>
+
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-danger" (click)="deleteUser(user)">
+              <fa name="trash-o" fixed="true"></fa>
+            </button>
+          </div>
+        </div>
+      </td> -->
+    </tr>
+    </tbody>
+  </table>
+</div>
