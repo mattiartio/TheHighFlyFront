@@ -1,29 +1,50 @@
-<form class="user-form" #f="ngForm">
-    <div class="form-group">
-        <label for="username">Username</label>
+<div class="container">
 
-        <input  name="username" id="username"
-        [(ngModel)]="user.username"
-        required
-        #username="ngModel"/>
 
-        <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+<div class="login-container">
+    <div class="img-responsive col-lg-offset-5">
+      <img width="300" alt="HighFly Logo" src="../assets/img/HighFly_logo.png">
+    </div>
+    <div class="user_card col-lg-offset-5">
+
+      <form class="user-form" #f="ngForm">
+
+          <div class="input-group ">
+            <input type="text" name="username" id="username"
+                   [(ngModel)]="user.username"
+                   required
+                   #username="ngModel" class="form-control input_user" value="" placeholder="username">
+            <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+
+          </div>
+          <div class="input-group ">
+            <input type="password" name="password" id="password"
+                   [(ngModel)]="user.password"
+                   required
+                   #password="ngModel" class="form-control input_pass" value="" placeholder="password">
+            <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+
+          </div>
+
+      </form>
+
+      <div class="d-flex justify-content-center mt-3 login_container">
+        <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+                (click)="login()"
+                [disabled]="!f.valid" type="button" name="button" class="btn login_btn">Login</button>
+      </div>
+
     </div>
 
-    <div class="form-group">
-        <label for="password">Password</label>
+  </div>
+</div>
 
-        <input  name="password" id="password"
-                [(ngModel)]="user.password"
-                required
-                #password="ngModel"/>
 
-        <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-    </div>
 
-    <div class="form-group form-footer">
-      <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
-              (click)="login()"
-              [disabled]="!f.valid">Save</button>
-    </div>
-</form>
+
+
+
+
+
+
+
