@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {User} from '../_model/user';
 import {HttpClient} from '@angular/common/http';
+import {BaseApiService} from './base-api-service.service';
 
 @Injectable()
 export class UserService extends BaseApiService {
   users: User[];
 
   constructor(private http: HttpClient) {
-    super();
-    this.users = Data.USERS;
+    super(http);
   }
 
   getUsers() {

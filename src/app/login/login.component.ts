@@ -3,6 +3,7 @@ import {getTemplateUrl} from 'codelyzer/util/ngQuery';
 import {exportNgVar} from '@angular/platform-browser/src/dom/util';
 import {Router} from '@angular/router';
 import {User} from '../_model/user';
+import {AuthService} from '../_services/auth-service.service';
 
 @Component({
       selector : 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   user: User;
 
   constructor(private router: Router, private authService: AuthService) {
-      this.user = new User();
+    this.user = new User();
   }
   ngOnInit() {
   }

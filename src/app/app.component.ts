@@ -1,4 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AuthService} from './_services/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,16 @@ import {Component, OnInit, Output} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'HighFly';
-  @Output('notify-login') notifyLogin = new EventEmitter();
+  //@Output('notify-login') notifyLogin = new EventEmitter();
   showNavbar: boolean;
 
   constructor(private authService: AuthService) {
-    this.showNavbar = this.authService.isLoggedUser();
+    //this.showNavbar = this.authService.isLoggedUser();
   }
   ngOnInit(): void {
   }
-  onActivate() {
-    this.showNavbar = this.authService.isLoggedUser();
+
+  onActivate($event) {
+    //this.showNavbar = this.authService.isLoggedUser();
   }
 }

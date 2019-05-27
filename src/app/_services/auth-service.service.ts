@@ -1,22 +1,26 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {User} from '../_model/user';
+import {HttpClient} from '@angular/common/http';
 import {BaseApiService} from './base-api-service.service';
 
 @Injectable()
 export class AuthService extends BaseApiService {
     constructor(private http: HttpClient) {
-      super();
+      super(http);
   }
   login(username: string, password: string): Observable<boolean> {
-    let sessionuser: User = null;
+    let sessionuser: User;
+    sessionuser = new User();
     const auth = new Observable<boolean>(
       (observer) => {
-        const url = this.buildRemoteRestUrl('users?username=' + username + '&password=' + password);
-        this.http.get(url).subscribe(
+        const url = this.buildRemoteRestUrl('api/login/');
+        sessionuser.username = username;
+        sessionuser.password = password;
+        this.http.post(url, sessionuser).subscribe(
           response => {
-            if (response[0]) {
-              sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
+            if (this.validation(response)) {
+              //sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
               console.log('loggato');
               // salvataggio dell'utente loggato
               this.storeSessionUser(sessionuser);
@@ -24,6 +28,7 @@ export class AuthService extends BaseApiService {
               observer.next(true);
               observer.complete();
             } else {
+              alert('' + response['responseStatus'] );
               console.log('non loggato');
               // Sblocco dell'observable con KO
               observer.next(false);
