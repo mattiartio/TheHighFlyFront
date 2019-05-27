@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         const auth = response;
         if (auth) {
           console.log('user authorized');
-          this.router.navigate(['users']);
+          this.router.navigate(['bookings']);
         } else {
           console.log('user not authorized');
         }

@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {User} from '../_model/user';
 import {HttpClient} from '@angular/common/http';
 import {BaseApiService} from './base-api-service.service';
+import {ResponseMessage} from '../_model/responseMessage';
 
 @Injectable()
 export class AuthService extends BaseApiService {
@@ -19,7 +20,7 @@ export class AuthService extends BaseApiService {
         sessionuser.password = password;
         this.http.post(url, sessionuser).subscribe(
           response => {
-            if (this.validation(response)) {
+            if (this.validation(response as ResponseMessage)) {
               //sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
               console.log('loggato');
               // salvataggio dell'utente loggato
