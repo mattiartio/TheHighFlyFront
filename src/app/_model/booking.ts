@@ -1,3 +1,5 @@
+import {Transport} from './transport';
+
 export class Booking {
   username: string;
   name: string;
