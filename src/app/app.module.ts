@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModuleModule} from './routing-module/routing-module.module';
 import { BookingComponent } from './booking/booking.component';
 import {BookingService} from './_services/booking.service';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {BookingService} from './_services/booking.service';
     BrowserModule,
     FormsModule,
     AppRoutingModuleModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [UserService, AuthService, BookingService],
   bootstrap: [AppComponent]

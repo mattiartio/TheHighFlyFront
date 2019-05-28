@@ -17,6 +17,7 @@ const routes: Routes = [
   {
     path: 'bookings',
     component: BookingComponent,
+    runGuardsAndResolvers: 'always'
   }
   ];
 
@@ -24,7 +25,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { enableTracing: true })
+    RouterModule.forRoot(routes, { enableTracing: true, onSameUrlNavigation: 'reload' })
   ],
   exports: [
     RouterModule

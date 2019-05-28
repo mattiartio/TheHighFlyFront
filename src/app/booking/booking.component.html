@@ -1,5 +1,5 @@
-<div class="">
-  <div class="" >
+<div class="row">
+  <div class="row" >
     <div class="col-md-6">
       <div class="input-group input-group-sm input-group-transparent input-group-rounded">
                     <span class="input-group-prepend">
@@ -26,6 +26,7 @@
       <th>Ritorno</th>
       <th>Prezzo</th>
       <th>N°persone</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -34,27 +35,27 @@
       <td>{{booking.username}}</td>
       <td>{{booking.name}}</td>
       <td>{{booking.surname}}</td>
-      <td>{{booking.transport.vehicle}}</td>
+      <td>{{booking.transportViewBean.vehicle}}</td>
       <td>{{booking.dataTo | date}}</td>
       <td>{{booking.dataTo | date}}</td>
       <td>{{booking.price}}</td>
       <td>{{booking.seats}}</td>
-     <!-- <td class="buttons">
+     <td class="buttons">
 
         <div class="row">
-          <div class="col-sm-4">
+          <!--<div class="col-sm-4">
             <button class="btn btn-primary" (click)="selectUser(user.id)">
               <fa name="pencil" fixed="true"></fa>
             </button>
 
-          </div>
+          </div>-->
           <div class="col-sm-4">
-            <button class="btn btn-danger" (click)="deleteUser(user)">
+            <button class="btn btn-danger" (click)="deleteBooking(booking.id)">
               <fa name="trash-o" fixed="true"></fa>
             </button>
           </div>
         </div>
-      </td> -->
+      </td>
     </tr>
     </tbody>
   </table>

@@ -12,4 +12,10 @@ export class BookingService extends BaseApiService {
     const url = this.buildRemoteRestUrl('bookings/listall');
     return this.http.get(url);
   }
+
+  deleteBooking(bookingId: number) {
+    const url = this.buildRemoteRestUrl('bookings/delete/' + bookingId);
+    console.log(url);
+    return this.http.get(url);
+  }
 }

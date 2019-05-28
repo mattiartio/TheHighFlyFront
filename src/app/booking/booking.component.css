@@ -1,1 +1,10 @@
+th{
+  padding: 5px;
+  border: 1px;
+}
 
+th {
+  background: cornflowerblue;
+  color: aliceblue;
+  padding: 5px;
+}
