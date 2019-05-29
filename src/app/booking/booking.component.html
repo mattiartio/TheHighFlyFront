@@ -28,13 +28,13 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let booking of bookingData" (click)="showBooking(booking.id)" style="cursor: pointer">
-      <td>{{booking.name}}</td>
-      <td>{{booking.surname}}</td>
-      <td>{{booking.transportViewBean.vehicle}}</td>
-      <td>{{booking.dataTo | date}}</td>
-      <td>{{booking.dataTo | date}}</td>
-      <td>{{booking.price}}</td>
+    <tr *ngFor="let booking of bookingData">
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.name}}</td>
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.surname}}</td>
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.transportViewBean.vehicle}}</td>
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.dataTo | date}}</td>
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.dataTo | date}}</td>
+      <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.price}}</td>
      <td class="buttons">
 
         <div class="row">
