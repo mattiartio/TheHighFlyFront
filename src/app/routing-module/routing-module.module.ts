@@ -8,17 +8,21 @@ const routes: Routes = [
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'login',
+      redirectTo: 'login'
     },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'bookings',
     component: BookingComponent,
     runGuardsAndResolvers: 'always'
-  }
+  }//,
+ // {
+  //  path: 'booking/:id/edit',
+   // component: BookingEditComponent
+ // }
   ];
 
 @NgModule({

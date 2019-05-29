@@ -21,20 +21,21 @@ export class AuthService extends BaseApiService {
         this.http.post(url, sessionuser).subscribe(
           response => {
             if (this.validation(response as ResponseMessage)) {
-              //sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
+              sessionuser = (response as ResponseMessage).data; // sessionuser = (<User>response[0]);
               console.log('loggato');
               // salvataggio dell'utente loggato
               this.storeSessionUser(sessionuser);
               // sblocco l'observable con OK
               observer.next(true);
               observer.complete();
-            } else {
-              alert('' + response['responseStatus'] );
-              console.log('non loggato');
-              // Sblocco dell'observable con KO
-              observer.next(false);
-              observer.complete();
             }
+          },
+          error => {
+            alert('' + (error as ResponseMessage).message);
+            console.log('non loggato');
+            // Sblocco dell'observable con KO
+            observer.next(false);
+            observer.complete();
           }
         );
       }

@@ -18,34 +18,30 @@
 
     <thead>
     <tr>
-      <th>Username</th>
       <th>Nome</th>
       <th>Cognome</th>
       <th>Veicolo</th>
       <th>Partenza</th>
       <th>Ritorno</th>
       <th>Prezzo</th>
-      <th>N°persone</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
 
     <tr *ngFor="let booking of bookingData">
-      <td>{{booking.username}}</td>
       <td>{{booking.name}}</td>
       <td>{{booking.surname}}</td>
       <td>{{booking.transportViewBean.vehicle}}</td>
       <td>{{booking.dataTo | date}}</td>
       <td>{{booking.dataTo | date}}</td>
       <td>{{booking.price}}</td>
-      <td>{{booking.seats}}</td>
      <td class="buttons">
 
         <div class="row">
           <div class="col-sm-4">
             <button class="btn btn-primary" (click)="selectBooking(booking.id)">
-              modifica<fa name="pencil" fixed="true"></fa>
+              <fa name="pencil" fixed="true"></fa>
             </button>
 
           </div>
