@@ -1,0 +1,61 @@
+<form class="booking-form" #f="ngForm">
+
+  <div class="form-group">
+    <label for="name">Nome</label>
+
+    <input name="name" id="name"
+           (ngModel)="booking.name"
+           required
+           #name="ngModel"/>
+
+    <span [hidden]="name.valid || name.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="surname">Cognome</label>
+
+    <input name="surname" id="surname"
+           (ngModel)="booking.surname"
+           required
+           #surname="ngModel"/>
+
+    <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="dataFrom">Partenza</label>
+
+    <input name="dataFrom" id="dataFrom"
+           (ngModel)="booking.dataFrom"
+           required
+           #dataFrom="ngModel"/>
+
+    <span [hidden]="dataFrom.valid || dataFrom.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="dataTo">Arrivo</label>
+
+    <input name="dataTo" id="dataTo"
+           (ngModel)="booking.dataTo"
+           required
+           #dataTo="ngModel"/>
+
+    <span [hidden]="dataTo.valid || dataTo.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+
+  <select>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+
+
+  <div class="form-group form-footer">
+    <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+            (click)="createBooking()"
+            [disabled]="!f.valid">Save
+    </button>
+  </div>
+</form>
