@@ -32,8 +32,8 @@ export class BookingComponent implements OnInit {
     );
   }
 
-  selectBooking(id : number) {
-
+  selectBooking(id: number) {
+    this.router.navigate(['bookings', id, 'edit']);
   }
 
   deleteBooking(id: number) {

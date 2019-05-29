@@ -45,6 +45,9 @@ export class AuthService extends BaseApiService {
   private storeSessionUser(loggedOne: User) {
     localStorage.setItem('currentUser', JSON.stringify(loggedOne));
   }
+  public getLoggedUserFromSessionStorage(): User {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
 }
 
 
