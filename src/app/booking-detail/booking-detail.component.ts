@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../_services/user.service';
 
 @Component({
   selector: 'app-booking-detail',
