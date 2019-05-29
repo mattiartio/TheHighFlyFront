@@ -11,19 +11,23 @@ import {AppRoutingModuleModule} from './routing-module/routing-module.module';
 import { BookingComponent } from './booking/booking.component';
 import {BookingService} from './_services/booking.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {NewBookingComponent} from './new-booking/new-booking.component';
+import {NavComponent} from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BookingComponent
+    BookingComponent,
+    NewBookingComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModuleModule,
     HttpClientModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
   ],
   providers: [UserService, AuthService, BookingService],
   bootstrap: [AppComponent]

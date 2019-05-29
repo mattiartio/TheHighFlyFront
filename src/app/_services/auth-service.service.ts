@@ -48,6 +48,18 @@ export class AuthService extends BaseApiService {
   public getLoggedUserFromSessionStorage(): User {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
+
+  isLoggedUser(): boolean {
+    const user: User = this.getLoggedUserFromSessionStorage();
+    if (user) {
+      return true;
+    }
+    return false;
+  }
+
+  logout()  {
+    localStorage.removeItem('currentUser');
+  }
 }
 
 

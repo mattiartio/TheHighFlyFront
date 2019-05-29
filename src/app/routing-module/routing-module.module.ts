@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {BookingComponent} from '../booking/booking.component';
+import {NewBookingComponent} from "../new-booking/new-booking.component";
 
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: 'bookings',
     component: BookingComponent,
     runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'newbookings',
+    component: NewBookingComponent,
   }
   ];
 

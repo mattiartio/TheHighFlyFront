@@ -8,20 +8,15 @@ export class User {
   cognome: string;
   company: string;
   email: string;
-  //cambiare no array ma singolo valore?
-  roles: Role[];
-  //giusto?
+  token: string;
   role: Role;
 
   constructor() {
-    this.id = 0;
-    this.roles = new Array<Role>();
   }
+
   isAdmin(): boolean {
-    if(this.role.type === 'admin')
-    {
+    if (this.role.type === 'admin') {
       return true;
-      //...
     }
     return false;
   }
