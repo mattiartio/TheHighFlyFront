@@ -11,12 +11,14 @@ import {AppRoutingModuleModule} from './routing-module/routing-module.module';
 import { BookingComponent } from './booking/booking.component';
 import {BookingService} from './_services/booking.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BookingComponent
+    BookingComponent,
+    BookingDetailComponent
   ],
   imports: [
     BrowserModule,

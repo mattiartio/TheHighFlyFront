@@ -12,11 +12,6 @@ export class User {
   constructor() {
   }
   isAdmin(): boolean {
-    if(this.role === 'admin')
-    {
-      return true;
-      //...
-    }
-    return false;
+    return this.role === 'admin';
   }
 }

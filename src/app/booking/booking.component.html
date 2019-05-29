@@ -4,7 +4,6 @@
       <div class="input-group input-group-sm input-group-transparent input-group-rounded">
                     <span class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-search"></i>
                       </span>
                     </span>
         <!-- <input class="form-control form-control-sm" id="table-search-input" [(ngModel)]="searchText"
@@ -29,7 +28,7 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let booking of bookingData">
+    <tr *ngFor="let booking of bookingData" (click)="showBooking(booking.id)">
       <td>{{booking.name}}</td>
       <td>{{booking.surname}}</td>
       <td>{{booking.transportViewBean.vehicle}}</td>

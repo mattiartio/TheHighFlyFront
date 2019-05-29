@@ -18,4 +18,8 @@ export class BookingService extends BaseApiService {
     console.log(url);
     return this.http.get(url);
   }
+  getBookingDetail(id: number) {
+    const url = this.buildRemoteRestUrl('bookings/detail/' + id);
+    return this.http.get(url);
+  }
 }

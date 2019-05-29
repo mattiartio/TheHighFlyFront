@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {BookingComponent} from '../booking/booking.component';
+import {BookingDetailComponent} from '../booking-detail/booking-detail.component';
 
 const routes: Routes = [
     {
@@ -18,11 +19,11 @@ const routes: Routes = [
     path: 'bookings',
     component: BookingComponent,
     runGuardsAndResolvers: 'always'
-  }//,
- // {
-  //  path: 'booking/:id/edit',
-   // component: BookingEditComponent
- // }
+  },
+  {
+   path: 'bookings/:id/detail',
+    component: BookingDetailComponent
+  }
   ];
 
 @NgModule({

@@ -49,4 +49,8 @@ export class BookingComponent implements OnInit {
     );
   }
 
+  showBooking(id: number) {
+    this.router.navigate(['bookings', id, 'detail']);
+  }
+
 }
