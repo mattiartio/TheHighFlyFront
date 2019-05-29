@@ -64,4 +64,37 @@ export class BookingService extends BaseApiService {
     const url = this.buildRemoteRestUrl('bookings/details/' + id);
     return this.http.get(url);
   }
+
+  getAvailableTransports(vehicle: string, dateFrom: Date, dateTo: Date, numPosti: number) {
+    let transport: Transport;
+    transport = new Transport();
+    const succ = new Observable<ResponseMessage>(
+      (observer) => {
+        const url = this.buildRemoteRestUrl('transport/findAvailableTransport');
+        transport.dateFrom = dateFrom;
+        transport.dateTo = dateTo;
+        transport.vehicle = vehicle;
+        transport.numPosti = numPosti;
+        this.http.post(url, transport).subscribe(
+          response => {
+            if (this.validation(response as ResponseMessage)) {
+              //sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
+              console.log('ricerca completata');
+              // salvataggio dell'utente loggato
+              // sblocco l'observable con OK
+              observer.next(response as ResponseMessage);
+              observer.complete();
+            } else {
+              alert('' + response['responseStatus'] );
+              console.log('ricerca fallita');
+              // Sblocco dell'observable con KO
+              observer.next(response as ResponseMessage);
+              observer.complete();
+            }
+          }
+        );
+      }
+    );
+    return succ;
+  }
 }

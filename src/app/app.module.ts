@@ -14,6 +14,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {BookingDetailComponent} from './booking-detail/booking-detail.component';
 import {NavComponent} from './nav/nav.component';
 import {NewBookingComponent} from './new-booking/new-booking.component';
+import { AvailableTransportComponent } from './available-transport/available-transport.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {NewBookingComponent} from './new-booking/new-booking.component';
     BookingComponent,
     NewBookingComponent,
     NavComponent,
-    BookingDetailComponent
+    BookingDetailComponent,
+    AvailableTransportComponent
   ],
   imports: [
     BrowserModule,
