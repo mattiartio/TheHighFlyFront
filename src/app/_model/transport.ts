@@ -7,6 +7,7 @@ export class Transport {
   dateFrom: Date;
   dateTo: Date;
   numPosti: number;
+  name: string;
 
   constructor() {
 

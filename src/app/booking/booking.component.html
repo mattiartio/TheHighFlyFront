@@ -15,7 +15,7 @@
 
     <caption>{{bookingTableHeader}}</caption>
 
-    <thead>
+    <thead >
     <tr>
       <th>Nome</th>
       <th>Cognome</th>
@@ -28,7 +28,7 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let booking of bookingData" (click)="showBooking(booking.id)">
+    <tr *ngFor="let booking of bookingData" (click)="showBooking(booking.id)" style="cursor: pointer">
       <td>{{booking.name}}</td>
       <td>{{booking.surname}}</td>
       <td>{{booking.transportViewBean.vehicle}}</td>

@@ -61,7 +61,7 @@ export class BookingService extends BaseApiService {
     return succ;
   }
   getBookingDetail(id: number) {
-    const url = this.buildRemoteRestUrl('bookings/detail/' + id);
+    const url = this.buildRemoteRestUrl('bookings/details/' + id);
     return this.http.get(url);
   }
 }

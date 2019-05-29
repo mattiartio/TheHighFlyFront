@@ -1,3 +1,47 @@
-<p>
-  booking-detail works!
-</p>
+<h1>Dettaglio prenotazione: <b style="text-transform: uppercase">{{booking.username}}</b></h1>
+<table class="table table-striped table-sm table-light">
+<thead align="center">
+<tr>
+  <th>Campo</th>
+  <th>Valore</th>
+</tr>
+</thead>
+<tbody align="center">
+<tr>
+  <td>Username</td>
+  <td>{{booking.username}}</td>
+</tr>
+<tr>
+  <td>Nome</td>
+  <td>{{booking.name}}</td>
+</tr>
+<tr>
+  <td>Cognome</td>
+  <td>{{booking.surname}}</td>
+</tr>
+<tr>
+  <td>Data Partenza</td>
+  <td>{{booking.dataFrom | date}}</td>
+</tr>
+<tr>
+  <td>Data Ritorno</td>
+  <td>{{booking.dataTo | date}}</td>
+</tr>
+<tr>
+  <td>Tipo Veicolo</td>
+  <td>{{booking.transportViewBean.vehicle}}</td>
+</tr>
+<tr>
+  <td>Nome Veicolo</td>
+  <td>{{booking.transportViewBean.name}}</td>
+</tr>
+<tr>
+  <td>Posti Prenotati</td>
+  <td>{{booking.seats}}</td>
+</tr>
+<tr>
+  <td>Prezzo</td>
+  <td>{{booking.price}}</td>
+</tr>
+</tbody>
+</table>
