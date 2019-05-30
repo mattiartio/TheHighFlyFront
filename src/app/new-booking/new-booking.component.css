@@ -1,6 +1,6 @@
 .panel {
-
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   background-color: #0089d1;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -8,3 +8,16 @@
   padding: 10px;
 
 }
+
+
+.panel label{
+  color: #fff;
+  margin-top: 10px;
+}
+
+.panel label span{
+  color: #fff;
+  height: 15px;
+}
+
+

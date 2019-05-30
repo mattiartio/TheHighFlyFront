@@ -1,17 +1,17 @@
-th{
-  padding: 5px;
-  border: 1px;
-}
+/*th{*/
+/*  padding: 5px;*/
+/*  border: 1px;*/
+/*}*/
 
-th {
-  background: cornflowerblue;
-  color: aliceblue;
-  padding: 5px;
-}
+/*th {*/
+/*  background: cornflowerblue;*/
+/*  color: aliceblue;*/
+/*  padding: 5px;*/
+/*}*/
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: #0089d1;
   overflow: hidden;
 }
 

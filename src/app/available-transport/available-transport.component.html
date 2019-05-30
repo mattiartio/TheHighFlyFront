@@ -1,27 +1,29 @@
-<div class="row">
 
-  <table class="table table-striped table-sm table-light">
+    <div class="panel">
+      <h3>Disponibili: </h3>
+      <table class=" table table-striped table-sm table-light">
 
-    <!--<caption>{{transportTableHeader}}</caption>-->
+        <!--<caption>{{transportTableHeader}}</caption>-->
 
-    <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Numero posti</th>
-      <th>Prezzo</th>
-      <th></th>
-    </tr>
-    </thead>
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Numero posti</th>
+          <th>Prezzo</th>
+          <th></th>
+        </tr>
+        </thead>
 
-    <tbody>
-    <tr *ngFor="let transport of transportList">
-      <td>{{transport.name}}</td>
-      <td>{{transport.numPosti}}</td>
-      <td>{{transport.price}}</td>
-      <td class="buttons"></td>
-      <td><button class="btn btn-primary" (click)="createBooking(transport)">Prenota<fa name="fas fa-rocket" fixed="true"></fa></button></td>
-    </tr>
-    </tbody>
+        <tbody>
+        <tr *ngFor="let transport of transportList">
+          <td>{{transport.name}}</td>
+          <td>{{transport.numPosti}}</td>
+          <td>{{transport.price}}</td>
+          <td class="buttons"></td>
+          <td><button class="btn btn-primary" (click)="createBooking(transport)">Prenota<fa name="fas fa-rocket" fixed="true"></fa></button></td>
+        </tr>
+        </tbody>
 
-  </table>
-</div>
+      </table>
+    </div>
+
