@@ -1,18 +1,18 @@
-<div>
+<div class="container">
   <div>
     <div>
-      <div class="input-group input-group-sm input-group-transparent input-group-rounded">
-                    <span class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="fa fa-search"></i>
-                      </span>
-                    </span>
-        <input class="form-control form-control-sm" id="table-search-input" [(ngModel)]="searchText"
+<!--      <div class="input-group input-group-sm input-group-transparent input-group-rounded">-->
+<!--                    <span class="input-group-prepend">-->
+<!--                      <span class="input-group-text">-->
+<!--                        <i class="fa fa-search"></i>-->
+<!--                      </span>-->
+<!--                    </span>-->
+        <input class="form-control mr-sm-2" type="search" aria-label="Search" [(ngModel)]="searchText"
                type="text" placeholder="Cerca per nominativo">
-      </div>
+<!--      </div>-->
     </div>
   </div>
-<div class="container">
+
   <table class="table table-striped table-sm table-light">
 
     <caption>{{bookingTableHeader}}</caption>
