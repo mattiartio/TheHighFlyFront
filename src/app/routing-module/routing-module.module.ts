@@ -22,7 +22,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   {
-    path: 'newbooking',
+    path: 'newbookings',
     component: NewBookingComponent,
   },
   {
