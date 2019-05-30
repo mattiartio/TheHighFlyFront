@@ -1,8 +1,10 @@
 <div class="container">
-    <form  class="booking-form" #f="ngForm">
-    <div class="form-row ">
-      <div class="form-group col-md-4 panel-default">
+  <div class="row">
 
+    <!-- form input-->
+   <div class="form-group col-md-4">
+
+      <form  class="booking-form" #f="ngForm">
        <label for="name">Nome</label>
        <input class="form-control" name="name" id="name"
               [(ngModel)]="booking.name"
@@ -31,13 +33,16 @@
                #dataTo="ngModel"/>
         <span [hidden]="dataTo.valid || dataTo.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
 
-        <label>Mezzo</label>
-          <select class="form-control" [(ngModel)]="transport.vehicle" name="vehicle">
+        <div class="row">
+          <div class="form-group col-md-8">
+        <label for="inputMezzo" >Mezzo</label>
+          <select class="form-control" id="inputMezzo" [(ngModel)]="transport.vehicle" name="vehicle">
             <option *ngFor="let vehicle of vehicles" [value]="vehicle.type">{{vehicle.type}}</option>
-        </select>
+          </select>
+        </div>
 
-        <div class="form-group">
-          <label for="numeroPosti">Numero posti</label>
+           <div class="col-md-4">
+          <label for="numeroPosti">N. posti</label>
 
           <input class="form-control" type="number" min=0 name="numeroPosti" id="numeroPosti"
                  [(ngModel)]="transport.numPosti"
@@ -46,6 +51,7 @@
 
           <span [hidden]="numeroPosti.valid || numeroPosti.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
         </div>
+        </div>
 
       <div class="form-group form-footer">
         <button type="submit" class="btn btn-primary" [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
@@ -53,14 +59,20 @@
                 [disabled]="!f.valid">Cerca disponbilità
         </button>
       </div>
-      </div>
-    </div>
-    </form>
 
+
+    </form>
+   </div>
+
+  <!-- tabella transport-->
    <div class="col-md-8">
     <div *ngIf="transportLoaded">
       <app-available-transport [booking]="booking" [transportList]="transportList" ></app-available-transport>
     </div>
     </div>
   </div>
+
+<!-- close container-->
+</div>
+
 
