@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {BookingComponent} from '../booking/booking.component';
-import {NewBookingComponent} from "../new-booking/new-booking.component";
+import {NewBookingComponent} from '../new-booking/new-booking.component';
 import {BookingDetailComponent} from '../booking-detail/booking-detail.component';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   {
-    path: 'newbookings',
+    path: 'newbooking',
     component: NewBookingComponent,
   },
   {

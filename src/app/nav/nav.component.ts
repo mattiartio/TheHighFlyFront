@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class NavComponent implements OnInit {
 
   @Input('showNavbar') showNavbar: boolean;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {

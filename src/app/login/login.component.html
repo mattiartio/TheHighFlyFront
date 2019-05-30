@@ -1,34 +1,38 @@
-<div *ngIf="">
 
+<div id="login">
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form id="login-form" class="form" #f="ngForm">
+<!--            <img style="align-content: center;margin-bottom:5%" width="200" alt="HighFly_logo" src="../../assets/img/logoHighFli.png">-->
+            <div class="form-group">
+              <label for="username" class="text-info">Username:</label><br>
+              <input type="Username" class="form-control"  name="username" id="username"
+                     [(ngModel)]="user.username"
+                     required
+                     #username="ngModel" placeholder="Your Username Id"/>
+
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-info">Password:</label><br>
+              <input type="Password" class="form-control" name="password" id="password"
+                     [(ngModel)]="user.password"
+                     required
+                     #password="ngModel" placeholder="Password"/>
+            </div>
+            <div class="form-group">
+              <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+              <button type="button" class="btn btn-lg btn-primary btn-block" [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+                      (click)="login()"
+                      [disabled]="!f.valid">LOGIN</button>
+            </div>
+            <div id="register-link" class="text-right">
+              <a href="#" class="text-info">Register here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<form class="user-form" #f="ngForm">
-    <div class="form-group">
-
-        <label for="username">Username </label>
-
-        <input  name="username" id="username"
-        [(ngModel)]="user.username"
-        required
-        #username="ngModel"/>
-
-        <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password </label>
-
-        <input  name="password" id="password"
-                [(ngModel)]="user.password"
-                required
-                #password="ngModel"/>
-
-        <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-    </div>
-
-    <div class="form-group form-footer">
-      <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
-              (click)="login()"
-              [disabled]="!f.valid">Login</button>
-    </div>
-</form>

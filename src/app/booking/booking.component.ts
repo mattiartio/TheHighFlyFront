@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {BookingService} from '../_services/booking.service';
 import {ResponseMessage} from '../_model/responseMessage';
 import {AuthService} from "../_services/auth-service.service";
+import {User} from "../_model/user";
 
 @Component({
 
@@ -22,7 +23,9 @@ export class BookingComponent implements OnInit {
       return false;
     };
 
-    if(this.authService.getLoggedUserFromSessionStorage().isAdmin()) {
+    let currentUser: User;
+    currentUser = this.authService.getLoggedUserFromSessionStorage();
+    if(currentUser.role === "admin") {
       this.bookingService.getBookings().subscribe (
         response => {
           let responseMessage: ResponseMessage;
@@ -47,12 +50,6 @@ export class BookingComponent implements OnInit {
         }
       );
     }
-
-
-
-
-
-
   }
 
   selectBooking(id: number) {
