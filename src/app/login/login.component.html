@@ -4,7 +4,8 @@
 
 <form class="user-form" #f="ngForm">
     <div class="form-group">
-        <label for="username">Username</label>
+
+        <label for="username">Username </label>
 
         <input  name="username" id="username"
         [(ngModel)]="user.username"
@@ -15,7 +16,7 @@
     </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Password </label>
 
         <input  name="password" id="password"
                 [(ngModel)]="user.password"
@@ -28,6 +29,6 @@
     <div class="form-group form-footer">
       <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
               (click)="login()"
-              [disabled]="!f.valid">Save</button>
+              [disabled]="!f.valid">Login</button>
     </div>
 </form>

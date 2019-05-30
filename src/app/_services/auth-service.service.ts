@@ -18,6 +18,7 @@ export class AuthService extends BaseApiService {
         const url = this.buildRemoteRestUrl('api/login/');
         sessionuser.username = username;
         sessionuser.password = password;
+
         this.http.post(url, sessionuser).subscribe(
           response => {
             if (this.validation(response as ResponseMessage)) {
