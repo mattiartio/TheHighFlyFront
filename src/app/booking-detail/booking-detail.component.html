@@ -1,51 +1,60 @@
 <div class="container">
+    <div class="form-group col-md-12">
+      <div class="panel">
+        <table class="table table-hover table-light">
+        <thead align="center">
+        <tr>
+          <th >  <h3>Dettaglio prenotazione: </h3>
+          </th>
+          <th >Info</th>
 
-<table class="table table-hover table-light">
-<thead align="center">
-<tr>
-  <th >  <h3>Dettaglio prenotazione: </h3>
-  </th>
-  <th >Info</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr>
+          <td>Username</td>
+          <td>{{booking.username}}</td>
+        </tr>
+        <tr>
+          <td>Nome</td>
+          <td>{{booking.name}}</td>
+        </tr>
+        <tr>
+          <td>Cognome</td>
+          <td>{{booking.surname}}</td>
+        </tr>
+        <tr>
+          <td>Data Partenza</td>
+          <td>{{booking.dataFrom | date}}</td>
+        </tr>
+        <tr>
+          <td>Data Ritorno</td>
+          <td>{{booking.dataTo | date}}</td>
+        </tr>
+        <tr>
+          <td>Tipo Veicolo</td>
+          <td colspan="2">{{booking.transportViewBean.vehicle}}</td>
+        </tr>
+        <tr>
+          <td>Nome Veicolo</td>
+          <td colspan="2">{{booking.transportViewBean.name}}</td>
+        </tr>
+        <tr>
+          <td>Posti Prenotati</td>
+          <td colspan="2">{{booking.seats}}</td>
+        </tr>
+        <tr>
+          <td>Prezzo</td>
+          <td colspan="2">{{booking.price}}</td>
+        </tr>
+        </tbody>
+        </table>
 
-</tr>
-</thead>
-<tbody >
-<tr>
-  <td>Username</td>
-  <td>{{booking.username}}</td>
-</tr>
-<tr>
-  <td>Nome</td>
-  <td>{{booking.name}}</td>
-</tr>
-<tr>
-  <td>Cognome</td>
-  <td>{{booking.surname}}</td>
-</tr>
-<tr>
-  <td>Data Partenza</td>
-  <td>{{booking.dataFrom | date}}</td>
-</tr>
-<tr>
-  <td>Data Ritorno</td>
-  <td>{{booking.dataTo | date}}</td>
-</tr>
-<tr>
-  <td>Tipo Veicolo</td>
-  <td colspan="2">{{booking.transportViewBean.vehicle}}</td>
-</tr>
-<tr>
-  <td>Nome Veicolo</td>
-  <td colspan="2">{{booking.transportViewBean.name}}</td>
-</tr>
-<tr>
-  <td>Posti Prenotati</td>
-  <td colspan="2">{{booking.seats}}</td>
-</tr>
-<tr>
-  <td>Prezzo</td>
-  <td colspan="2">{{booking.price}}</td>
-</tr>
-</tbody>
-</table>
+          <div class="form-group form-footer">
+          <button type="submit" class="btn btn-danger" (click)="selectBooking(booking.id)">
+            <fa name="pencil" fixed="true"></fa>modifica
+          </button>
+          </div>
+    </div>
+  </div>
 </div>

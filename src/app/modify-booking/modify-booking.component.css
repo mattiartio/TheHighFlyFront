@@ -1,5 +1,5 @@
 .panel {
-  margin-top: 40px;
+  margin-top: 45px;
   margin-bottom: 40px;
   background-color: #0089d1;
   border: 1px solid transparent;
@@ -8,7 +8,10 @@
   padding: 10px;
 
 }
-
+.panel button{
+  float: right;
+  margin-top: 30px;
+}
 
 .panel label{
   color: #fff;

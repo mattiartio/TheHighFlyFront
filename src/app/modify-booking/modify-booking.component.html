@@ -1,13 +1,12 @@
 <div class="container">
-  <div class="panel">
   <div class="form-group col-md-12">
-
+    <div class="panel">
       <form class="booking-form" #f="ngForm">
 
         <table class="table table-hover table-light">
           <thead align="center">
           <tr>
-            <th >  <h3>Dettaglio prenotazione: </h3>
+            <th >  <h3>Modifica prenotazione: </h3>
             </th>
             <th >Info</th>
 
@@ -63,15 +62,15 @@
 
             <button  type="submit" class="btn btn-danger" [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
                     (click)="modifyBooking()"
-                    [disabled]="!f.valid">Modifica
+                    [disabled]="!f.valid">Aggiorna
             </button>
 
             </div>
 
       </form>
-
+    </div>
     </div>
   </div>
 
 
-</div>
+

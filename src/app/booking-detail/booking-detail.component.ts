@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Booking} from '../_model/booking';
 import {BookingService} from '../_services/booking.service';
 import {ResponseMessage} from '../_model/responseMessage';
+import {BookingComponent} from "../booking/booking.component";
 
 @Component({
   selector: 'app-booking-detail',
@@ -32,4 +33,7 @@ export class BookingDetailComponent implements OnInit {
     );
   }
 
+  selectBooking(id: number) {
+    this.router.navigate(['bookings', id, 'edit']);
+  }
 }
