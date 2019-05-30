@@ -72,12 +72,13 @@ export class BookingService extends BaseApiService {
   }
 
 
-  createBookings(name: string, surname: string, transportViewBean: Transport, dateFrom: Date, dateTo: Date, price: number, seats: number) {
+  createBookings(username: string, name: string, surname: string, transportViewBean: Transport, dateFrom: Date, dateTo: Date, price: number, seats: number) {
     let newBooking: Booking;
     newBooking = new Booking();
     const succ = new Observable<boolean>(
       (observer) => {
         const url = this.buildRemoteRestUrl('bookings/create');
+        newBooking.username = username;
         newBooking.name = name;
         newBooking.surname = surname;
         newBooking.transportViewBean = transportViewBean;
@@ -95,7 +96,7 @@ export class BookingService extends BaseApiService {
               observer.next(true);
               observer.complete();
             } else {
-              alert('' + response['responseStatus'] );
+              alert('' + (response as ResponseMessage).message );
               console.log('booking non aggiunto');
               // Sblocco dell'observable con KO
               observer.next(false);
@@ -153,5 +154,9 @@ export class BookingService extends BaseApiService {
       }
     );
     return succ;
+  }
+  getVehicleTypes() {
+    const url = this.buildRemoteRestUrl('vehicles/listall');
+    return this.http.get(url);
   }
 }
