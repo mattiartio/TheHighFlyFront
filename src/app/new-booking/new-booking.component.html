@@ -2,67 +2,69 @@
   <div class="row">
 
     <!-- form input-->
-   <div class="form-group col-md-4">
+    <div class="form-group col-md-4">
+      <div class="panel">
+          <form  class="booking-form" #f="ngForm">
+           <label for="name">Nome</label>
+           <input class="form-control" name="name" id="name"
+                  [(ngModel)]="booking.name"
+                  required
+                  #name="ngModel"/>
+           <span [hidden]="name.valid || name.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
 
-      <form  class="booking-form" #f="ngForm">
-       <label for="name">Nome</label>
-       <input class="form-control" name="name" id="name"
-              [(ngModel)]="booking.name"
-              required
-              #name="ngModel"/>
-       <span [hidden]="name.valid || name.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+            <label for="surname">Cognome</label>
+            <input class="form-control" name="surname" id="surname"
+                    [(ngModel)]="booking.surname"
+                    required
+                    #surname="ngModel"/>
+            <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
 
-        <label for="surname">Cognome</label>
-        <input class="form-control" name="surname" id="surname"
-                [(ngModel)]="booking.surname"
-                required
-                #surname="ngModel"/>
-        <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+            <label for="dataFrom">Data inizio</label>
+            <input class="form-control" type="date" name="dataFrom" id="dataFrom"
+                   [(ngModel)]="transport.dateFrom"
+                   required
+                   #dataFrom="ngModel"/>
+            <span [hidden]="dataFrom.valid || dataFrom.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
 
-        <label for="dataFrom">Data inizio</label>
-        <input class="form-control" type="date" name="dataFrom" id="dataFrom"
-               [(ngModel)]="transport.dateFrom"
-               required
-               #dataFrom="ngModel"/>
-        <span [hidden]="dataFrom.valid || dataFrom.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+            <label for="dataTo">Data fine</label>
+            <input class="form-control" type="date" name="dataTo" id="dataTo"
+                   [(ngModel)]="transport.dateTo"
+                   required
+                   #dataTo="ngModel"/>
+            <span [hidden]="dataTo.valid || dataTo.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
 
-        <label for="dataTo">Data fine</label>
-        <input class="form-control" type="date" name="dataTo" id="dataTo"
-               [(ngModel)]="transport.dateTo"
-               required
-               #dataTo="ngModel"/>
-        <span [hidden]="dataTo.valid || dataTo.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+            <div class="row">
+              <div class="form-group col-md-8">
+            <label for="inputMezzo" >Mezzo</label>
+              <select class="form-control" id="inputMezzo" [(ngModel)]="transport.vehicle" name="vehicle">
+                <option *ngFor="let vehicle of vehicles" [value]="vehicle.type">{{vehicle.type}}</option>
+              </select>
+            </div>
 
-        <div class="row">
-          <div class="form-group col-md-8">
-        <label for="inputMezzo" >Mezzo</label>
-          <select class="form-control" id="inputMezzo" [(ngModel)]="transport.vehicle" name="vehicle">
-            <option *ngFor="let vehicle of vehicles" [value]="vehicle.type">{{vehicle.type}}</option>
-          </select>
-        </div>
+               <div class="col-md-4">
+              <label for="numeroPosti">N. posti</label>
 
-           <div class="col-md-4">
-          <label for="numeroPosti">N. posti</label>
+              <input class="form-control" type="number" min=0 name="numeroPosti" id="numeroPosti"
+                     [(ngModel)]="transport.numPosti"
+                     required
+                     #numeroPosti="ngModel"/>
 
-          <input class="form-control" type="number" min=0 name="numeroPosti" id="numeroPosti"
-                 [(ngModel)]="transport.numPosti"
-                 required
-                 #numeroPosti="ngModel"/>
+              <span [hidden]="numeroPosti.valid || numeroPosti.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+            </div>
+            </div>
 
-          <span [hidden]="numeroPosti.valid || numeroPosti.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-        </div>
-        </div>
+          <div class="form-group form-footer">
+            <button type="submit" class="btn btn-primary" [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+                    (click)="findAvailable()"
+                    [disabled]="!f.valid">Cerca disponbilità
+            </button>
+          </div>
 
-      <div class="form-group form-footer">
-        <button type="submit" class="btn btn-primary" [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
-                (click)="findAvailable()"
-                [disabled]="!f.valid">Cerca disponbilità
-        </button>
+
+        </form>
       </div>
-
-
-    </form>
    </div>
+
 
   <!-- tabella transport-->
    <div class="col-md-8">
