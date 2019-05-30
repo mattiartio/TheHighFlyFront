@@ -1,3 +1,31 @@
-<p>
-  modify-booking works!
-</p>
+<form class="booking-form" #f="ngForm">
+
+  <div class="form-group">
+    <label for="name">Nome</label>
+
+    <input name="name" id="name"
+           [(ngModel)]="booking.name"
+           required
+           #name="ngModel"/>
+
+    <span [hidden]="name.valid || name.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+
+  <div class="form-group">
+    <label for="surname">Cognome</label>
+
+    <input name="surname" id="surname"
+           [(ngModel)]="booking.surname"
+           required
+           #surname="ngModel"/>
+
+    <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+  </div>
+  <div class="form-group form-footer">
+    <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+            (click)="modifyBooking()"
+            [disabled]="!f.valid">Modifica
+    </button>
+  </div>
+
+</form>

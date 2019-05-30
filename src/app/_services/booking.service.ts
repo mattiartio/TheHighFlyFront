@@ -112,4 +112,31 @@ export class BookingService extends BaseApiService {
     const url = this.buildRemoteRestUrl('vehicles/listall');
     return this.http.get(url);
   }
+
+  modifyBooking(booking: Booking) {
+    const succ = new Observable<boolean>(
+      (observer) => {
+        const url = this.buildRemoteRestUrl('bookings/update/' + booking.id);
+        this.http.put(url, booking).subscribe(
+          response => {
+            if (this.validation(response as ResponseMessage)) {
+              //sessionuser = (response[0] as User); // sessionuser = (<User>response[0]);
+              console.log('booking aggiunto');
+              // salvataggio dell'utente loggato
+              // sblocco l'observable con OK
+              observer.next(true);
+              observer.complete();
+            } else {
+              alert('' + (response as ResponseMessage).message );
+              console.log('booking non aggiunto');
+              // Sblocco dell'observable con KO
+              observer.next(false);
+              observer.complete();
+            }
+          }
+        );
+      }
+    );
+    return succ;
+  }
 }
