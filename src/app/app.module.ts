@@ -15,6 +15,7 @@ import {BookingDetailComponent} from './booking-detail/booking-detail.component'
 import {NavComponent} from './nav/nav.component';
 import {NewBookingComponent} from './new-booking/new-booking.component';
 import { AvailableTransportComponent } from './available-transport/available-transport.component';
+import { ModifyBookingComponent } from './modify-booking/modify-booking.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AvailableTransportComponent } from './available-transport/available-tra
     NewBookingComponent,
     NavComponent,
     BookingDetailComponent,
-    AvailableTransportComponent
+    AvailableTransportComponent,
+    ModifyBookingComponent
   ],
   imports: [
     BrowserModule,
