@@ -1,12 +1,13 @@
 
 th {
-  background: cornflowerblue;
+  background:#0089D1;
   color: aliceblue;
   padding: 5px;
-  padding: 5px;
-  border: 1px;
+  border: 2px;
+  border-top: 25px;
 }
 
 .container .bu button{
   float: right;
 }
+
