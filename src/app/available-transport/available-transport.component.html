@@ -13,7 +13,7 @@
   </div>
   <table class="table table-striped table-sm table-light">
 
-    <caption>{{transportTableHeader}}</caption>
+    <!--<caption>{{transportTableHeader}}</caption>-->
 
     <thead>
     <tr>
@@ -30,6 +30,7 @@
       <td>{{transport.numPosti}}</td>
       <td>{{transport.price}}</td>
       <td class="buttons"></td>
+      <td><button class="btn btn-primary" (click)="createBooking()">Prenota<fa name="fas fa-rocket" fixed="true"></fa></button></td>
     </tr>
     </tbody>
 

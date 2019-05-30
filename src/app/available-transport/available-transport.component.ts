@@ -17,8 +17,6 @@ export class AvailableTransportComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  /*
   createBooking() {
     // tslint:disable-next-line:max-line-length
     this.bookingService.createBookings(this.booking.name, this.booking.surname, this.booking.transportViewBean, this.booking.dataFrom, this.booking.dataTo, this.booking.price, this.booking.seats).subscribe(
@@ -32,6 +30,6 @@ export class AvailableTransportComponent implements OnInit {
         }
       }
     );
-  }*/
+  }
 
 }

@@ -33,27 +33,13 @@ export class NewBookingComponent implements OnInit {
 
   findAvailable() {
     // tslint:disable-next-line:max-line-length
-    this.bookingService.getAvailableTransports(this.transport.vehicle, this.transport.dateFrom, this.transport.dateTo, this.transport.maxSeats).subscribe(
+    console.log(this.transport);
+    this.bookingService.getAvailableTransports(this.transport.vehicle, this.transport.dateFrom, this.transport.dateTo, this.transport.numPosti).subscribe(
       response => {
         const succ = response;
         if (succ) {
           this.transportLoaded = true;
           this.transportList = (response as ResponseMessage).data;
-        } else {
-          console.log('booking non aggiunto');
-        }
-      }
-    );
-  }
-
-  createBooking() {
-    // tslint:disable-next-line:max-line-length
-    this.bookingService.createBookings(this.booking.name, this.booking.surname, this.booking.transportViewBean, this.booking.dataFrom, this.booking.dataTo, this.booking.price, this.booking.seats).subscribe(
-      response => {
-        const succ = response;
-        if (succ) {
-          console.log('booking aggiunto');
-          this.router.navigate(['bookings']);
         } else {
           console.log('booking non aggiunto');
         }

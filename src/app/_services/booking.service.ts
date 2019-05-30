@@ -85,12 +85,22 @@ export class BookingService extends BaseApiService {
               observer.next(response as ResponseMessage);
               observer.complete();
             } else {
-              alert('' + response['responseStatus'] );
+              alert('' + (response as ResponseMessage).message);
               console.log('ricerca fallita');
               // Sblocco dell'observable con KO
               observer.next(response as ResponseMessage);
               observer.complete();
             }
+          },
+          error => {
+            let responseMessage: ResponseMessage;
+            responseMessage = error as ResponseMessage;
+            alert('' + responseMessage.message);
+          console.log('ricerca fallita');
+          // Sblocco dell'observable con KO
+          observer.next(error as ResponseMessage);
+          observer.complete();
+
           }
         );
       }

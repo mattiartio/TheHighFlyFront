@@ -26,7 +26,7 @@
     <label for="dataFrom">Data inizio</label>
 
     <input type="date" name="dataFrom" id="dataFrom"
-           (ngModel)="booking.dataFrom"
+           [(ngModel)]="transport.dateFrom"
            required
            #dataFrom="ngModel"/>
 
@@ -37,7 +37,7 @@
     <label for="dataTo">Data fine</label>
 
     <input type="date" name="dataTo" id="dataTo"
-           (ngModel)="booking.dataTo"
+           [(ngModel)]="transport.dateTo"
            required
            #dataTo="ngModel"/>
 
@@ -46,9 +46,9 @@
 
   <div>
     <label>Mezzo</label>
-      <select>
+      <select [(ngModel)]="transport.vehicle" name="vehicle">
         <option value="car">Automobile</option>
-        <option value="aerplain">Aeroplano</option>
+        <option value="airplane">Aeroplano</option>
         <option value="train">Treno</option>
     </select>
   </div>
@@ -56,8 +56,8 @@
     <div class="form-group">
       <label for="numeroPosti">Numero posti</label>
 
-      <input name="numeroPosti" id="numeroPosti"
-             (ngModel)="booking.seats"
+      <input type="number" min=0 name="numeroPosti" id="numeroPosti"
+             [(ngModel)]="transport.numPosti"
              required
              #numeroPosti="ngModel"/>
 
