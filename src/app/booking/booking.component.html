@@ -1,3 +1,17 @@
+<div>
+  <div>
+    <div>
+      <div class="input-group input-group-sm input-group-transparent input-group-rounded">
+                    <span class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </span>
+        <input class="form-control form-control-sm" id="table-search-input" [(ngModel)]="searchText"
+               type="text" placeholder="Cerca per nominativo">
+      </div>
+    </div>
+  </div>
 <div class="container">
   <table class="table table-striped table-sm table-light">
 
@@ -16,7 +30,7 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let booking of bookingData">
+    <tr *ngFor="let booking of bookingData | BookingSearchPipe: searchText" >
       <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.name}}</td>
       <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.surname}}</td>
       <td (click)="showBooking(booking.id)" style="cursor: pointer">{{booking.transportViewBean.vehicle}}</td>
