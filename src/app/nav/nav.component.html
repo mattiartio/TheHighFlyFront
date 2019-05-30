@@ -1,17 +1,28 @@
-<nav class="topnav"
-      *ngIf="showNavbar">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"*ngIf="showNavbar">
     <div class="container">
-    <div class="navbar-brand logo-img">
-      <img width="50px" src="../../assets/img/HighFly_logo.png">
-    </div>
     <a class="navbar-brand" href="#" [routerLink]="['/bookings']">
-      Home
+      <img  src="../../assets/img/HighFly_logo.png" width="30" class="d-inline-block align-top" alt=""> HIGHFLY.com
     </a>
-    <a class="navbar-brand" href="#" [routerLink]="['/newbookings']">
-      Aggiungi prenotazione
-    </a>
-    <a class="navbar-brand" href="#" (click)="logout()">
-      Logout
-    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="navbar-brand" href="#" [routerLink]="['/newbookings']">
+            Aggiungi prenotazione
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" href="#" (click)="logout()">
+            Logout
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
     </div>
 </nav>
