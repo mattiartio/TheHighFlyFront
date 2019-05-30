@@ -1,10 +1,10 @@
 <form class="booking-form" #f="ngForm">
 
-  <!-- <div class="form-group">
+  <div class="form-group">
    <label for="name">Nome</label>
 
    <input name="name" id="name"
-          (ngModel)="booking.name"
+          [(ngModel)]="booking.name"
           required
           #name="ngModel"/>
 
@@ -15,12 +15,12 @@
      <label for="surname">Cognome</label>
 
      <input name="surname" id="surname"
-            (ngModel)="booking.surname"
+            [(ngModel)]="booking.surname"
             required
             #surname="ngModel"/>
 
      <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-   </div>-->
+   </div>
 <div style="float: left">
   <div class="form-group">
     <label for="dataFrom">Data inizio</label>
@@ -47,9 +47,7 @@
   <div>
     <label>Mezzo</label>
       <select [(ngModel)]="transport.vehicle" name="vehicle">
-        <option value="car">Automobile</option>
-        <option value="airplane">Aeroplano</option>
-        <option value="train">Treno</option>
+        <option *ngFor="let vehicle of vehicles" [value]="vehicle.type">{{vehicle.type}}</option>
     </select>
   </div>
 
@@ -73,7 +71,7 @@
 </div>
   <div style="float: right">
     <div *ngIf="transportLoaded">
-      <app-available-transport [transportList]="transportList"></app-available-transport>
+      <app-available-transport [booking]="booking" [transportList]="transportList" ></app-available-transport>
     </div>
 </div>
 </form>
