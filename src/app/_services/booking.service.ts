@@ -5,17 +5,64 @@ import {Booking} from '../_model/booking';
 import {Observable} from 'rxjs';
 import {ResponseMessage} from '../_model/responseMessage';
 import {Transport} from '../_model/transport';
+import {BookingFilter} from "../_model/bookingFilter";
+import {User} from "../_model/user";
+import {AuthService} from "./auth-service.service";
 
 
 @Injectable()
 export class BookingService extends BaseApiService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     super(http);
   }
 
   getBookings() {
     const url = this.buildRemoteRestUrl('bookings/listall');
     return this.http.get(url);
+  }
+
+
+  getUserBookings() {
+    let bookingFilter: BookingFilter;
+    bookingFilter = new BookingFilter();
+    let currentUser = new User();
+    currentUser = this.authService.getLoggedUserFromSessionStorage();
+
+    const succ = new Observable<ResponseMessage>(
+      (observer) => {
+          const url = this.buildRemoteRestUrl('bookings/filteredList');
+          bookingFilter.username = currentUser.username;
+          this.http.post(url, bookingFilter).subscribe(
+            response => {
+              if (this.validation(response as ResponseMessage)) {
+
+                console.log('Lista filtrata');
+                observer.next(response as ResponseMessage);
+                observer.complete();
+              } else {
+                alert('' + (response as ResponseMessage).message);
+                console.log('Filtro lista fallito');
+
+                observer.next(response as ResponseMessage);
+                observer.complete();
+              }
+            },
+            error => {
+              let responseMessage: ResponseMessage;
+              responseMessage = error as ResponseMessage;
+              alert('' + responseMessage.message);
+              console.log('Filtro lista fallito');
+              // Sblocco dell'observable con KO
+              observer.next(error as ResponseMessage);
+              observer.complete();
+
+            }
+          );
+
+      }
+    );
+
+    return succ;
   }
 
   deleteBooking(bookingId: number) {
