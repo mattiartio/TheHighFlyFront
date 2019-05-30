@@ -15,6 +15,7 @@ import {User} from "../_model/user";
 export class BookingComponent implements OnInit {
   bookingTableHeader: string;
   bookingData: Booking[];
+  searchText = '';
   constructor(private router: Router, private bookingService: BookingService, private authService: AuthService) {
   }
 
