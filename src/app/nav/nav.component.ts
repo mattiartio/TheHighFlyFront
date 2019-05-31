@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from '../_services/auth-service.service';
 import {Router} from '@angular/router';
+import {User} from "../_model/user";
 
 @Component({
   selector: 'app-nav',
@@ -10,11 +11,13 @@ import {Router} from '@angular/router';
 export class NavComponent implements OnInit {
 
   @Input('showNavbar') showNavbar: boolean;
+  user: User;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.showNavbar = this.authService.isLoggedUser();
+    this.user = this.authService.getLoggedUserFromSessionStorage();
   }
 
   logout() {

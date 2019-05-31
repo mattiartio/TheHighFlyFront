@@ -30,13 +30,13 @@ export class AuthService extends BaseApiService {
               observer.next(true);
               observer.complete();
             }
-          },
-          error => {
-            alert('' + (error as ResponseMessage).message);
-            console.log('non loggato');
-            // Sblocco dell'observable con KO
-            observer.next(false);
-            observer.complete();
+            else {
+              alert('' + (response as ResponseMessage).message);
+              console.log('non loggato');
+              // Sblocco dell'observable con KO
+              observer.next(false);
+              observer.complete();
+            }
           }
         );
       }

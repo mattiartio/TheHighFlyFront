@@ -4,6 +4,7 @@ import {exportNgVar} from '@angular/platform-browser/src/dom/util';
 import {Router} from '@angular/router';
 import {User} from '../_model/user';
 import {AuthService} from '../_services/auth-service.service';
+import {ResponseMessage} from "../_model/responseMessage";
 
 @Component({
       selector : 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['bookings']);
         } else {
           console.log('user not authorized');
+
         }
       }
     );
